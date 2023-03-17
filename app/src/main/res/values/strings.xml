@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SuperHeroes</string>
+    <string name="hero1">Iron Man</string>
+    <string name="description1">"Automata "</string>
+    <string name="hero2">Batman</string>
+    <string name="description2">Venganza</string>
+    <string name="hero3">Capitan america</string>
+    <string name="description3">Escudo de adamantium</string>
+    <string name="hero4">Black panter</string>
+    <string name="description4">Rey de Wakanda</string>
+    <string name="hero5">Hulk</string>
+    <string name="description5">Fuerza gamma</string>
+    <string name="hero6">Namor</string>
+    <string name="description6">Rey del mar</string>
+</resources>
