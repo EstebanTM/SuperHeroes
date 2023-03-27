@@ -1,21 +1,26 @@
 package com.huntersoul.superheroes
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyItemScope
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.huntersoul.superheroes.model.Hero
+import com.huntersoul.superheroes.model.HeroesList
 import com.huntersoul.superheroes.ui.theme.SuperheroesTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,35 +33,49 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    HeroMain()
                 }
             }
         }
     }
 }
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun HeroItem(modifier: Modifier = Modifier){
-    Card() {
-        Row() {
-            Column() {
-                Text(text = stringResource(id = R.string.hero1))
-                Text(text = stringResource(id = R.string.description1))
+fun HeroMain(modifier: Modifier = Modifier){
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = {
+            Box(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .size(56.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.app_name),
+                    style = MaterialTheme.typography.h1,
+                )
             }
-            Image(painter = painterResource(id = R.drawable.android_superhero1), 
-                contentDescription = null)
         }
-    }
+    ) {}
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun HeroListScreen() {
+    val heroes = HeroesList.heroes
+    LazyColumn(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        items(heroes) { hero ->
+            HeroListItem(hero = hero)
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    SuperHeroesTheme {
-        Greeting("Android")
+    SuperheroesTheme {
+        HeroMain()
     }
 }

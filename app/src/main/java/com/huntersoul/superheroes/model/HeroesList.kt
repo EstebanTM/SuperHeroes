@@ -2,7 +2,7 @@ package com.huntersoul.superheroes.model
 
 import com.huntersoul.superheroes.R
 
-object HeroesRepository {
+object HeroesList {
     val heroes = listOf(
         Hero(
             nameRes = R.string.hero1,
