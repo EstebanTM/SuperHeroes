@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SuperHeroes</string>
+    <string name="app_name">Super Heroes</string>
     <string name="hero1">Iron Man</string>
     <string name="description1">"Automata "</string>
     <string name="hero2">Batman</string>
